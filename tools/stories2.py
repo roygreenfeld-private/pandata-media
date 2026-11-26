@@ -12,7 +12,7 @@ def panel(lines, code, foot, dark):
     acc=TEAL2+(255,) if dark else TEAL+(255,)
     ims=[text_img(l,font(46,'Medium'),fg) for l in lines]
     cims=[]
-    for t,ok in code: cims.append(mono(t,(120,220,160,255) if ok else (255,120,110,255)))
+    for t,ok in code: cims.append(mono(t,(120,220,160,255) if ok is True else ((255,120,110,255) if ok is False else (225,235,233,255))))
     f=text_img(foot,font(42,'Bold'),acc)
     inner=max([i.width for i in ims]+[c.width+60 for c in cims]+[f.width])
     w=min(960,inner+90)
