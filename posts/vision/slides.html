@@ -25,14 +25,13 @@ mark::after{content:"";position:absolute;inset:auto -6px 6px -6px;height:34%;bac
 h2{font-size:86px;line-height:1.08;font-weight:900}
 
 /* 1 */
-#s1 .bg{position:absolute;left:0;right:0;bottom:-60px;height:1150px;background:url(s1.jpg) center bottom/cover}
-#s1 .fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,36,38,1) 0%,rgba(10,36,38,1) 36%,rgba(10,36,38,.6) 48%,rgba(10,36,38,0) 62%)}
+#s1{background:linear-gradient(180deg,#e1cba4,#e3d3b1);color:var(--ink)}
+#s1 .bg{position:absolute;left:50%;bottom:0;width:838px;height:1500px;transform:translateX(-50%);background:url(key.jpg) center bottom/cover;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 20%);-webkit-mask-composite:source-in}
 #s1 .t{z-index:3}
-#s1 .pill{background:var(--mint);color:var(--deep);margin-bottom:34px}
-#s1 h1{font-size:120px;line-height:1.0;font-weight:900;letter-spacing:-1px}
-#s1 h1 em{font-style:normal;color:var(--mint)}
-#s1 h1 .big{color:var(--sun)}
-
+#s1 .pill{background:var(--deep);color:#fff;margin-bottom:30px}
+#s1 h1{font-size:118px;line-height:1.02;font-weight:900;letter-spacing:-1px}
+#s1 .sub{font-size:36px;font-weight:700;margin-top:30px;color:var(--teal)}
+#s1 .brand i{background:var(--teal)}
 /* 2 */
 #s2 p{font-size:42px;line-height:1.45;font-weight:500;margin-top:34px;max-width:900px}
 #s2 .cloud{position:absolute;bottom:120px;left:0;right:0;height:560px}
@@ -86,12 +85,13 @@ h2{font-size:86px;line-height:1.08;font-weight:900}
 #s6 .h{direction:ltr;display:block;font-size:30px;font-weight:700;margin-top:22px;color:var(--teal)}
 </style></head><body>
 
-<div class="s dark" id="s1"><div class="bg"></div><div class="fade"></div>
+<div class="s" id="s1"><div class="bg"></div>
 <div class="brand"><i></i>הידעת · Pandata</div><div class="num">1/6</div>
 <div class="t"><div class="pill">✦ החזון שלנו</div>
-<h1><span class="big">3</span> דברים<br>ש<em>פנדאטה</em><br>בונה כאן</h1></div>
+<h1>המפתח שלכם<br><mark>לעולם הדאטה</mark></h1>
+<div class="sub">להנגיש · לעזור בראיונות · מרכז ידע</div></div>
 <div class="swipe"><span>←</span>החליקו</div>
-<div class="dots"><b class="on"></b><b></b><b></b><b></b><b></b><b></b></div></div>
+<div class="dots" style="color:var(--ink)"><b class="on"></b><b></b><b></b><b></b><b></b><b></b></div></div>
 
 <div class="s cream" id="s2"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">2/6</div>
 <div class="t"><h2>דאטה נמצא<br><mark>בכל מקום.</mark></h2>
@@ -139,9 +139,8 @@ h2{font-size:86px;line-height:1.08;font-weight:900}
 
 <div class="s cream" id="s6" style="background:#fceac3"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">6/6</div>
 <div class="t"><h2>זה החזון.<br><mark>ואתם חלק ממנו.</mark></h2>
-<div class="recap"><div><i>✓</i>להנגיש דאטה בצורה קלה ומוחשית</div><div><i>✓</i>לעזור לכם בראיונות עבודה</div><div><i>✓</i>מרכז ידע בעולם הדאטה</div></div>
-<div class="bubble">מה הכי מבלבל אתכם בדאטה? 👇</div></div>
+<div class="recap"><div><i>✓</i>להנגיש דאטה בצורה קלה ומוחשית</div><div><i>✓</i>לעזור לכם בראיונות עבודה</div><div><i>✓</i>מרכז ידע בעולם הדאטה</div></div></div>
 <div class="laugh"></div>
-<div class="cta"><div class="btn">עקבו ←</div><br><div class="btn2">📌 שמרו את הפוסט</div><span class="h">@haya___data</span></div>
+<div class="cta"><div class="btn" style="font-size:52px;padding:28px 56px">עקבו ←</div><span class="h">@haya___data</span></div>
 <div class="dots" style="color:var(--ink)"><b></b><b></b><b></b><b></b><b></b><b class="on"></b></div></div>
 </body></html>
