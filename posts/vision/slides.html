@@ -67,6 +67,7 @@ h2{font-size:86px;line-height:1.08;font-weight:900}
 /* 5 */
 #s5 .pill{background:var(--teal);color:#fff;margin-bottom:30px}
 #s5 .sub{font-size:40px;line-height:1.4;font-weight:500;margin-top:26px;max-width:900px}
+#s5 .tiles{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,196px);gap:20px;direction:ltr}#s5 .tiles img{width:196px;height:196px;border-radius:44px;box-shadow:0 12px 28px rgba(15,42,44,.16);display:block}
 #s5 .hl{position:absolute;right:50px;left:50px;bottom:130px;display:grid;grid-template-columns:repeat(4,1fr);gap:34px 10px;justify-items:center}
 #s5 .b{display:flex;flex-direction:column;align-items:center;gap:14px}
 #s5 .ring{width:176px;height:176px;border-radius:50%;padding:7px;background:conic-gradient(from 200deg,var(--teal),var(--mint),var(--sun),var(--coral),var(--teal))}
@@ -107,10 +108,10 @@ h2{font-size:86px;line-height:1.08;font-weight:900}
 <div class="dots"><b></b><b class="on"></b><b></b><b></b><b></b><b></b></div></div>
 
 <div class="s cream" id="s3" style="background:#f3f7f2"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">3/6</div>
-<div class="t"><div class="pill">01 · להנגיש</div>
-<h2>דאטה קל<br><mark>ומוחשי יותר</mark></h2>
+<div class="t"><div class="pill">החזון · 01</div>
+<h2 style="font-size:80px">להנגיש דאטה<br><mark>בצורה קלה ומוחשית</mark></h2>
 <div class="rows">
-<div class="row"><div class="ic">🗣️</div>בעברית פשוטה, בלי ז'רגון</div>
+<div class="row"><div class="ic">🗣️</div>בעברית פשוטה</div>
 <div class="row"><div class="ic">👀</div>רואים את התהליך, לא רק שומעים</div>
 <div class="row"><div class="ic">🛒</div>דוגמאות מהחיים וקוד אמיתי</div>
 </div></div>
@@ -120,7 +121,7 @@ h2{font-size:86px;line-height:1.08;font-weight:900}
 <div class="dots" style="color:var(--ink)"><b></b><b></b><b class="on"></b><b></b><b></b><b></b></div></div>
 
 <div class="s dark" id="s4"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">4/6</div>
-<div class="t"><div class="pill">02 · ראיונות עבודה</div>
+<div class="t"><div class="pill">החזון · 02</div>
 <h2>להגיע לראיון<br><mark>ולדעת לענות.</mark></h2>
 <div class="sub">שאלות אמיתיות מראיונות בדאטה, עם התשובה שעובדת והסבר למה.</div></div>
 <div class="card"><span class="tag">💼 שאלה מראיון עבודה</span>
@@ -130,24 +131,15 @@ h2{font-size:86px;line-height:1.08;font-weight:900}
 <div class="dots"><b></b><b></b><b></b><b class="on"></b><b></b><b></b></div></div>
 
 <div class="s cream" id="s5"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">5/6</div>
-<div class="t"><div class="pill">03 · מרכז ידע</div>
-<h2>מקום אחד<br><mark>שחוזרים אליו</mark></h2>
-<div class="sub">כל טיפ נשמר בהיילייטס, מסודר לפי נושא. צריכים משהו? הוא כבר מחכה לכם בפרופיל.</div></div>
-<div class="hl">
-<div class="b"><div class="ring"><div>🗄️</div></div><span>SQL</span></div>
-<div class="b"><div class="ring"><div>🐍</div></div><span>Python</span></div>
-<div class="b"><div class="ring"><div>📊</div></div><span>Excel</span></div>
-<div class="b"><div class="ring"><div>🛠️</div></div><span>Tools</span></div>
-<div class="b"><div class="ring"><div>💽</div></div><span>Database</span></div>
-<div class="b"><div class="ring"><div>⚙️</div></div><span>Data Engineer</span></div>
-<div class="b"><div class="ring"><div>🔎</div></div><span>Data Analyst</span></div>
-<div class="b"><div class="ring"><div>💼</div></div><span>ראיונות</span></div>
-</div>
+<div class="t"><div class="pill">החזון · 03</div>
+<h2>מרכז ידע<br><mark>בעולם הדאטה</mark></h2>
+<div class="sub">כל הטיפים נשמרים בהיילייטס, מסודרים לפי נושא.</div></div>
+<div class="tiles"><img src="tile1.png"><img src="tile2.png"><img src="tile3.png"><img src="tile4.png"><img src="tile5.png"><img src="tile6.png"><img src="tile7.png"><img src="tile8.png"><img src="tile9.png"></div>
 <div class="dots" style="color:var(--ink)"><b></b><b></b><b></b><b></b><b class="on"></b><b></b></div></div>
 
 <div class="s cream" id="s6" style="background:#fceac3"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">6/6</div>
 <div class="t"><h2>זה החזון.<br><mark>ואתם חלק ממנו.</mark></h2>
-<div class="recap"><div><i>✓</i>להנגיש דאטה, קל ומוחשי</div><div><i>✓</i>לעזור לכם בראיונות עבודה</div><div><i>✓</i>מרכז ידע שחוזרים אליו</div></div>
+<div class="recap"><div><i>✓</i>להנגיש דאטה בצורה קלה ומוחשית</div><div><i>✓</i>לעזור לכם בראיונות עבודה</div><div><i>✓</i>מרכז ידע בעולם הדאטה</div></div>
 <div class="bubble">מה הכי מבלבל אתכם בדאטה? 👇</div></div>
 <div class="laugh"></div>
 <div class="cta"><div class="btn">עקבו ←</div><br><div class="btn2">📌 שמרו את הפוסט</div><span class="h">@haya___data</span></div>
