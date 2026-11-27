@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:R;src:url(rubik.ttf);font-weight:300 900}
+:root{--ink:#0f2a2c;--deep:#0e3336;--teal:#1d7b78;--mint:#7fe3c8;--cream:#fbf3e4;--coral:#ff6b57;--sun:#ffc94a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#888;font-family:R,sans-serif}
+.s{width:1080px;height:1350px;position:relative;overflow:hidden;margin-bottom:20px}
+.dark{background:radial-gradient(1200px 900px at 80% 0%,#1b5c5c 0%,var(--deep) 55%,#0a2426 100%);color:#fff}
+.cream{background:var(--cream);color:var(--ink)}
+.brand{position:absolute;top:56px;right:70px;display:flex;align-items:center;gap:14px;font-weight:700;font-size:30px;letter-spacing:.5px;z-index:5}
+.brand i{width:14px;height:14px;border-radius:50%;background:var(--mint);display:block}
+.cream .brand i{background:var(--teal)}
+.num{position:absolute;top:56px;left:70px;font-weight:600;font-size:28px;opacity:.6;z-index:5;direction:ltr}
+.dots{position:absolute;bottom:56px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:5;direction:ltr}
+.dots b{width:14px;height:14px;border-radius:7px;background:currentColor;opacity:.25}
+.dots b.on{width:44px;opacity:1;background:var(--coral)}
+.swipe{position:absolute;bottom:44px;left:70px;font-weight:700;font-size:30px;display:flex;align-items:center;gap:12px;z-index:5}
+.swipe span{display:inline-block;width:58px;height:58px;border-radius:50%;background:var(--coral);color:#fff;text-align:center;line-height:56px;font-size:34px}
+.pill{display:inline-block;padding:14px 30px;border-radius:60px;font-weight:700;font-size:34px}
+mark{background:none;color:inherit;position:relative;z-index:0}
+mark::after{content:"";position:absolute;inset:auto -6px 6px -6px;height:34%;background:var(--sun);z-index:-1;border-radius:6px;opacity:.9}
+.dark mark::after{background:var(--coral);opacity:.85}
+
+/* slide 1 */
+#s1 .bg{position:absolute;left:0;right:0;bottom:-60px;height:1150px;background:url(s1.jpg) center bottom/cover}
+#s1 .fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,36,38,1) 0%,rgba(10,36,38,1) 36%,rgba(10,36,38,.6) 48%,rgba(10,36,38,0) 62%)}
+#s1 .t{position:absolute;top:170px;right:70px;left:70px;z-index:3}
+#s1 .pill{background:var(--mint);color:var(--deep);margin-bottom:34px}
+#s1 h1{font-size:112px;line-height:1.02;font-weight:900;letter-spacing:-1px}
+#s1 h1 em{font-style:normal;color:var(--mint)}
+
+/* slide 2 */
+#s2 .t{position:absolute;top:170px;right:70px;left:70px}
+#s2 h2{font-size:86px;line-height:1.08;font-weight:900}
+#s2 p{font-size:42px;line-height:1.45;font-weight:500;margin-top:34px;max-width:900px}
+#s2 .cloud{position:absolute;bottom:120px;left:0;right:0;height:560px}
+#s2 .face{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:430px;height:430px;border-radius:50%;overflow:hidden;border:10px solid #fff;box-shadow:0 20px 60px rgba(15,42,44,.25);background:url(shock.jpg) center 30%/cover}
+#s2 .w{position:absolute;direction:ltr;font-weight:700;font-size:34px;padding:12px 26px;border-radius:40px;background:#fff;color:var(--ink);box-shadow:0 8px 24px rgba(15,42,44,.12);border:3px solid var(--ink)}
+#s2 .w.x{background:var(--coral);color:#fff;border-color:var(--coral)}
+#s2 .w.y{background:var(--ink);color:#fff}
+
+/* slide 3 */
+#s3 .t{position:absolute;top:170px;right:70px;left:70px}
+#s3 .pill{background:var(--teal);color:#fff;margin-bottom:30px}
+#s3 h2{font-size:84px;line-height:1.08;font-weight:900}
+#s3 .rows{margin-top:40px;display:flex;flex-direction:column;gap:18px}
+#s3 .row{display:flex;align-items:center;gap:26px;font-size:44px;font-weight:600}
+#s3 .ic{width:84px;height:84px;border-radius:24px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:0 8px 22px rgba(15,42,44,.12);flex:none}
+#s3 .code{position:absolute;bottom:270px;left:70px;width:520px;background:var(--ink);border-radius:28px;padding:30px 34px;direction:ltr;font-family:"DejaVu Sans Mono",monospace;font-size:28px;line-height:1.6;color:#e6f2f0;box-shadow:0 24px 60px rgba(15,42,44,.3);transform:rotate(-3deg)}
+#s3 .code .k{color:var(--mint);font-weight:700}#s3 .code .n{color:var(--sun)}
+#s3 .code .bar{display:flex;gap:9px;margin-bottom:16px}#s3 .code .bar i{width:14px;height:14px;border-radius:50%;background:#ff6b57}#s3 .code .bar i+i{background:#ffc94a}#s3 .code .bar i+i+i{background:#7fe3c8}
+#s3 .img{position:absolute;bottom:100px;right:50px;width:430px;height:420px;border-radius:36px;background:url(pipe.jpg) center 70%/cover;box-shadow:0 24px 60px rgba(15,42,44,.25)}
+#s3 .chips{position:absolute;bottom:130px;left:70px;display:flex;gap:12px;direction:ltr;flex-wrap:wrap;width:540px}
+#s3 .chips b{font-size:28px;font-weight:700;padding:10px 22px;border-radius:30px;border:3px solid var(--teal);color:var(--teal);background:#fff}
+
+/* slide 4 */
+#s4 .t{position:absolute;top:170px;right:70px;left:70px}
+#s4 .pill{background:var(--sun);color:var(--deep);margin-bottom:34px}
+#s4 h2{font-size:92px;line-height:1.08;font-weight:900}
+#s4 .steps{position:absolute;right:70px;left:70px;bottom:250px;height:470px}
+#s4 .st{position:absolute;width:300px;border-radius:30px;padding:30px 26px;background:rgba(255,255,255,.08);border:2px solid rgba(127,227,200,.45);backdrop-filter:blur(4px)}
+#s4 .st .n{font-weight:900;font-size:64px;color:var(--mint);line-height:1}
+#s4 .st p{font-size:36px;font-weight:600;line-height:1.3;margin-top:12px}
+#s4 .st:nth-child(1){right:0;bottom:0}
+#s4 .st:nth-child(2){right:330px;bottom:120px}
+#s4 .st:nth-child(3){right:660px;bottom:240px;background:var(--mint);color:var(--deep);border-color:var(--mint)}
+#s4 .st:nth-child(3) .n{color:var(--deep)}
+#s4 .foot{position:absolute;bottom:130px;right:70px;font-size:40px;font-weight:700;color:var(--mint)}
+
+/* slide 5 */
+#s5 .t{position:absolute;top:170px;right:70px;left:70px}
+#s5 h2{font-size:84px;line-height:1.06;font-weight:900}
+#s5 .list{margin-top:44px;display:flex;flex-direction:column;gap:20px}
+#s5 .it{display:flex;align-items:center;gap:24px;background:#fff;border-radius:28px;padding:22px 28px;box-shadow:0 10px 26px rgba(15,42,44,.08);font-size:40px;font-weight:600}
+#s5 .it .e{font-size:48px;width:70px;text-align:center}
+#s5 .it small{display:block;font-size:28px;font-weight:500;opacity:.65;margin-top:4px}
+#s5 .laugh{position:absolute;bottom:0;left:0;width:600px;height:620px;background:url(laugh.png) -60px -720px/820px auto no-repeat;-webkit-mask-image:linear-gradient(to left,transparent 0,#000 18%),linear-gradient(to bottom,transparent 0,#000 15%);-webkit-mask-composite:source-in;mask-composite:intersect}
+#s5 .cta{position:absolute;bottom:150px;right:70px;width:470px;text-align:right}
+#s5 .cta p{font-size:36px;line-height:1.35;font-weight:600;margin-bottom:26px}
+#s5 .btn{display:inline-flex;align-items:center;gap:14px;background:var(--coral);color:#fff;font-weight:800;font-size:40px;padding:22px 40px;border-radius:60px;box-shadow:0 14px 30px rgba(255,107,87,.4)}
+#s5 .h{direction:ltr;display:block;font-size:30px;font-weight:700;margin-top:18px;color:var(--teal)}
+</style></head><body>
+
+<!-- 1 -->
+<div class="s dark" id="s1"><div class="bg"></div><div class="fade"></div>
+<div class="brand"><i></i>הידעת · Pandata</div><div class="num">1/5</div>
+<div class="t"><div class="pill">✦ החזון שלנו</div>
+<h1>למה יש פנדה<br>ש<em>מסבירה דאטה</em>?</h1></div>
+<div class="swipe"><span>←</span>החליקו</div><div class="dots"><b class="on"></b><b></b><b></b><b></b><b></b></div></div>
+
+<!-- 2 -->
+<div class="s cream" id="s2"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">2/5</div>
+<div class="t"><h2>דאטה נמצא<br><mark>בכל מקום.</mark></h2>
+<p>בעבודה, בחדשות, בכל ראיון בהייטק. אבל רוב ההסברים באנגלית, מלאים במילים מפחידות, ונכתבו בשביל מי שכבר יודע.</p></div>
+<div class="cloud"><div class="face"></div>
+<span class="w x" style="right:80px;top:30px;transform:rotate(6deg)">ETL</span>
+<span class="w" style="left:90px;top:10px;transform:rotate(-8deg)">LEFT JOIN</span>
+<span class="w y" style="right:60px;top:210px;transform:rotate(-5deg)">Kafka</span>
+<span class="w" style="left:60px;top:200px;transform:rotate(7deg)">p-value</span>
+<span class="w y" style="left:250px;top:90px;transform:rotate(3deg)">Data Lake</span>
+<span class="w" style="right:250px;top:110px;transform:rotate(-4deg)">NULL</span>
+<span class="w x" style="left:40px;top:360px;transform:rotate(-6deg)">Schema</span>
+<span class="w" style="right:40px;top:370px;transform:rotate(8deg)">Pipeline</span>
+</div>
+<div class="dots"><b></b><b class="on"></b><b></b><b></b><b></b></div></div>
+
+<!-- 3 -->
+<div class="s cream" id="s3" style="background:#f3f7f2"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">3/5</div>
+<div class="t"><div class="pill">מה אנחנו עושים</div>
+<h2>מסבירים דאטה<br><mark>כמו שמסבירים לחבר</mark></h2>
+<div class="rows">
+<div class="row"><div class="ic">🗣️</div>בעברית פשוטה, בלי ז'רגון</div>
+<div class="row"><div class="ic">🛒</div>עם דוגמאות מהחיים</div>
+<div class="row"><div class="ic">📈</div>מהבסיס ועד המתקדם</div>
+</div></div>
+<div class="img"></div>
+<div class="code"><div class="bar"><i></i><i></i><i></i></div><span class="k">SELECT</span> product, <span class="k">SUM</span>(qty)<br><span class="k">FROM</span> orders<br><span class="k">GROUP BY</span> product;<br><span style="opacity:.6">-- real code, not theory</span></div>
+<div class="chips"><b>Excel</b><b>SQL</b><b>Python</b><b>Airflow</b><b>Spark</b></div>
+<div class="dots" style="color:var(--ink)"><b></b><b></b><b class="on"></b><b></b><b></b></div></div>
+
+<!-- 4 -->
+<div class="s dark" id="s4"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">4/5</div>
+<div class="t"><div class="pill">✦ החזון</div>
+<h2>שכל מי שרוצה<br>יוכל להיכנס<br><mark>לעולם הדאטה.</mark></h2></div>
+<div class="steps">
+<div class="st"><div class="n">01</div><p>להבין מה אומרים בישיבה</p></div>
+<div class="st"><div class="n">02</div><p>לעבור ראיון עבודה</p></div>
+<div class="st"><div class="n">03</div><p>להחליף קריירה 🚀</p></div>
+</div>
+<div class="foot">בלי תואר נוסף. סרטון אחד בכל פעם.</div>
+<div class="dots"><b></b><b></b><b></b><b class="on"></b><b></b></div></div>
+
+<!-- 5 -->
+<div class="s cream" id="s5" style="background:#fceac3"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">5/5</div>
+<div class="t"><h2>מה מחכה <mark>לכם כאן</mark></h2>
+<div class="list">
+<div class="it"><div class="e">📌</div><div>טיפ קצר בסטורי<small>כל יום, SQL, Python ואקסל</small></div></div>
+<div class="it"><div class="e">🎬</div><div>רילסים על מושג אחד<small>מוסבר עד הסוף, בלי לדלג</small></div></div>
+<div class="it"><div class="e">💼</div><div>שאלה מראיון עבודה<small>סדרה חדשה, ככה עונים נכון</small></div></div>
+</div></div>
+<div class="laugh"></div>
+<div class="cta"><p>ובפעם הבאה שמישהו יגיד "דאטה", תדעו בדיוק על מה מדברים 😉</p>
+<div class="btn">עקבו ←</div><span class="h">@haya___data</span></div>
+<div class="dots" style="color:var(--ink)"><b></b><b></b><b></b><b></b><b class="on"></b></div></div>
+</body></html>
