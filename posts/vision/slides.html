@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:R;src:url(rubik.ttf);font-weight:300 900}
+:root{--ink:#0f2a2c;--deep:#0e3336;--teal:#1d7b78;--mint:#7fe3c8;--cream:#fbf3e4;--coral:#ff6b57;--sun:#ffc94a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#888;font-family:R,sans-serif}
+.s{width:1080px;height:1350px;position:relative;overflow:hidden;margin-bottom:20px}
+.dark{background:radial-gradient(1200px 900px at 80% 0%,#1b5c5c 0%,var(--deep) 55%,#0a2426 100%);color:#fff}
+.cream{background:linear-gradient(180deg,#e1cba4,#e3d3b1);color:var(--ink)}
+.brand{position:absolute;top:56px;right:70px;display:flex;align-items:center;gap:14px;font-weight:700;font-size:30px;letter-spacing:.5px;z-index:5}
+.brand i{width:14px;height:14px;border-radius:50%;background:var(--mint);display:block}
+.cream .brand i{background:var(--teal)}
+.num{position:absolute;top:56px;left:70px;font-weight:600;font-size:28px;opacity:.6;z-index:5;direction:ltr}
+.dots{position:absolute;bottom:56px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10;direction:ltr}
+.dots b{width:14px;height:14px;border-radius:7px;background:currentColor;opacity:.25}
+.dots b.on{width:44px;opacity:1;background:var(--coral)}
+.swipe{position:absolute;bottom:44px;left:70px;font-weight:700;font-size:30px;display:flex;align-items:center;gap:12px;z-index:5}
+.swipe span{display:inline-block;width:58px;height:58px;border-radius:50%;background:var(--coral);color:#fff;text-align:center;line-height:56px;font-size:34px}
+.pill{display:inline-block;padding:14px 30px;border-radius:60px;font-weight:700;font-size:34px}
+mark{background:none;color:inherit;position:relative;z-index:0}
+mark::after{content:"";position:absolute;inset:auto -6px 6px -6px;height:34%;background:var(--sun);z-index:-1;border-radius:6px;opacity:.9}
+.dark mark::after{background:var(--coral);opacity:.85}
+.t{position:absolute;top:170px;right:70px;left:70px}
+h2{font-size:86px;line-height:1.08;font-weight:900}
+
+/* 1 */
+#s1{background:linear-gradient(180deg,#e1cba4,#e3d3b1);color:var(--ink)}
+#s1 .bg{position:absolute;left:50%;bottom:0;width:838px;height:1500px;transform:translateX(-50%);background:url(key.jpg) center bottom/cover;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 20%);-webkit-mask-composite:source-in}
+#s1 .t{z-index:3}
+#s1 .pill{background:var(--deep);color:#fff;margin-bottom:30px}
+#s1 h1{font-size:118px;line-height:1.02;font-weight:900;letter-spacing:-1px}
+#s1 .sub{font-size:36px;font-weight:700;margin-top:30px;color:var(--teal)}
+#s1 .brand i{background:var(--teal)}
+/* 2 */
+#s2 p{font-size:42px;line-height:1.45;font-weight:500;margin-top:34px;max-width:900px}
+#s2 .cloud{position:absolute;bottom:0;left:0;right:0;height:760px}
+#s2 .face{position:absolute;bottom:-160px;left:50%;transform:translateX(-50%);width:700px;height:1000px;background:url(mag.jpg) center bottom/700px auto no-repeat;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 15%,#000 85%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 25%);-webkit-mask-composite:source-in}
+#s2 .w{position:absolute;direction:ltr;font-weight:700;font-size:34px;padding:12px 26px;border-radius:40px;background:#fff;color:var(--ink);box-shadow:0 8px 24px rgba(15,42,44,.12);border:3px solid var(--ink)}
+#s2 .w.x{background:var(--coral);color:#fff;border-color:var(--coral)}
+#s2 .w.y{background:var(--ink);color:#fff}
+
+/* 3 */
+#s3 .pill{background:var(--deep);color:#fff;margin-bottom:30px}
+#s3 .rows{margin-top:40px;display:flex;flex-direction:column;gap:18px}
+#s3 .row{display:flex;align-items:center;gap:26px;font-size:42px;font-weight:600}
+#s3 .ic{width:84px;height:84px;border-radius:24px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:0 8px 22px rgba(15,42,44,.12);flex:none}
+#s3 .code{position:absolute;bottom:270px;left:70px;width:520px;background:var(--ink);border-radius:28px;padding:30px 34px;direction:ltr;font-family:"DejaVu Sans Mono",monospace;font-size:28px;line-height:1.6;color:#e6f2f0;box-shadow:0 24px 60px rgba(15,42,44,.3);transform:rotate(-3deg)}
+#s3 .code .k{color:var(--mint);font-weight:700}
+#s3 .code .bar{display:flex;gap:9px;margin-bottom:16px}#s3 .code .bar i{width:14px;height:14px;border-radius:50%;background:#ff6b57}#s3 .code .bar i+i{background:#ffc94a}#s3 .code .bar i+i+i{background:#7fe3c8}
+#s3 .img{position:absolute;bottom:100px;right:50px;width:430px;height:420px;border-radius:36px;background:url(pipe.jpg) center 70%/cover;box-shadow:0 24px 60px rgba(15,42,44,.25)}
+#s3 .chips{position:absolute;bottom:130px;left:70px;display:flex;gap:12px;direction:ltr;flex-wrap:wrap;width:540px}
+#s3 .chips b{font-size:28px;font-weight:700;padding:10px 22px;border-radius:30px;border:3px solid var(--teal);color:var(--teal);background:#fff}
+
+/* 4 */
+#s4 .pill{background:var(--deep);color:#fff;margin-bottom:30px}
+#s4 .sub{font-size:40px;line-height:1.4;font-weight:500;margin-top:26px;opacity:.9}
+#s4 .card{position:absolute;right:70px;left:70px;bottom:140px;background:#fffaf0;color:var(--ink);border-radius:36px;padding:40px 44px;box-shadow:0 24px 60px rgba(80,60,20,.22)}
+#s4 .card .tag{display:inline-block;background:var(--deep);color:#fff;font-weight:700;font-size:32px;padding:8px 20px;border-radius:30px}
+#s4 .card .q{font-size:52px;font-weight:800;line-height:1.25;margin:22px 0 28px}
+#s4 .opt{display:flex;align-items:center;gap:20px;font-size:40px;font-weight:600;padding:26px 28px;border-radius:22px;margin-top:14px}
+#s4 .opt .m{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;flex:none;font-weight:900}
+#s4 .bad{background:#fff0ed}#s4 .bad .m{background:var(--coral)}#s4 .bad span{text-decoration:line-through;text-decoration-color:rgba(255,107,87,.7);text-decoration-thickness:3px}
+#s4 .good{background:#e6f8f2}#s4 .good .m{background:var(--teal)}
+
+/* 5 */
+#s5 .pill{background:var(--deep);color:#fff;margin-bottom:30px}
+#s5 .sub{font-size:40px;line-height:1.4;font-weight:500;margin-top:26px;max-width:900px}
+#s5 .tiles{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,196px);gap:20px;direction:ltr}#s5 .tiles img{width:196px;height:196px;border-radius:44px;box-shadow:0 12px 28px rgba(15,42,44,.16);display:block}
+#s5 .hl{position:absolute;right:50px;left:50px;bottom:130px;display:grid;grid-template-columns:repeat(4,1fr);gap:34px 10px;justify-items:center}
+#s5 .b{display:flex;flex-direction:column;align-items:center;gap:14px}
+#s5 .ring{width:176px;height:176px;border-radius:50%;padding:7px;background:conic-gradient(from 200deg,var(--teal),var(--mint),var(--sun),var(--coral),var(--teal))}
+#s5 .ring div{width:100%;height:100%;border-radius:50%;background:#fff;border:6px solid var(--cream);display:flex;align-items:center;justify-content:center;font-size:66px}
+#s5 .b span{font-size:28px;font-weight:700;direction:ltr;white-space:nowrap}
+
+/* 6 */
+#s6 h2{font-size:84px;line-height:1.06}
+#s6 .sub{font-size:42px;line-height:1.4;font-weight:600;margin-top:30px;max-width:900px}
+#s6 .bubble{margin-top:40px;display:inline-block;background:#fff;border-radius:34px 34px 34px 8px;padding:30px 36px;font-size:40px;font-weight:700;box-shadow:0 12px 30px rgba(15,42,44,.1)}
+#s6 .recap{margin-top:46px;display:flex;flex-direction:column;gap:16px}#s6 .recap div{font-size:40px;font-weight:700;display:flex;align-items:center;gap:18px}#s6 .recap i{font-style:normal;width:54px;height:54px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px}
+#s6 .laugh{position:absolute;bottom:0;left:-30px;width:640px;height:820px;background:url(clock.jpg) 40% bottom/640px auto no-repeat;-webkit-mask-image:radial-gradient(ellipse 62% 70% at 42% 72%,#000 55%,transparent 100%)}
+#s6 .cta{position:absolute;bottom:150px;right:70px;width:440px;text-align:right}
+#s6 .btn{display:inline-flex;align-items:center;gap:14px;background:var(--coral);color:#fff;font-weight:800;font-size:40px;padding:22px 40px;border-radius:60px;box-shadow:0 14px 30px rgba(255,107,87,.4)}
+#s6 .btn2{display:inline-flex;margin-top:18px;font-weight:800;font-size:36px;padding:18px 34px;border-radius:60px;border:4px solid var(--ink)}
+#s6 .h{direction:ltr;display:block;font-size:30px;font-weight:700;margin-top:22px;color:var(--teal)}
+</style></head><body>
+
+<div class="s" id="s1"><div class="bg"></div>
+<div class="brand"><i></i>הידעת · Pandata</div><div class="num">1/6</div>
+<div class="t"><div class="pill">✦ החזון שלנו</div>
+<h1>המפתח שלכם<br><mark>לעולם הדאטה</mark></h1>
+<div class="sub">להנגיש · לעזור בראיונות · מרכז ידע</div></div>
+<div class="swipe"><span>←</span>החליקו</div>
+<div class="dots" style="color:var(--ink)"><b class="on"></b><b></b><b></b><b></b><b></b><b></b></div></div>
+
+<div class="s cream" id="s2"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">2/6</div>
+<div class="t"><h2>דאטה נמצא<br><mark>בכל מקום.</mark></h2>
+<p>בעבודה, בחדשות, בכל ראיון בהייטק. אבל רוב ההסברים באנגלית, מלאים במילים מפחידות, ונכתבו בשביל מי שכבר יודע.</p></div>
+<div class="cloud"><div class="face"></div>
+<span class="w x" style="right:80px;top:30px;transform:rotate(6deg)">ETL</span>
+<span class="w" style="left:90px;top:10px;transform:rotate(-8deg)">LEFT JOIN</span>
+<span class="w y" style="right:60px;top:210px;transform:rotate(-5deg)">Kafka</span>
+<span class="w" style="left:60px;top:200px;transform:rotate(7deg)">p-value</span>
+<span class="w y" style="left:250px;top:90px;transform:rotate(3deg)">Data Lake</span>
+<span class="w" style="right:250px;top:110px;transform:rotate(-4deg)">NULL</span>
+<span class="w x" style="left:40px;top:360px;transform:rotate(-6deg)">Schema</span>
+<span class="w" style="right:40px;top:370px;transform:rotate(8deg)">Pipeline</span></div>
+<div class="dots"><b></b><b class="on"></b><b></b><b></b><b></b><b></b></div></div>
+
+<div class="s cream" id="s3"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">3/6</div>
+<div class="t"><div class="pill">החזון · 01</div>
+<h2 style="font-size:80px">להנגיש דאטה<br><mark>בצורה קלה ומוחשית</mark></h2>
+<div class="rows">
+<div class="row"><div class="ic">🗣️</div>בעברית פשוטה</div>
+<div class="row"><div class="ic">👀</div>רואים את התהליך, לא רק שומעים</div>
+<div class="row"><div class="ic">🛒</div>דוגמאות מהחיים וקוד אמיתי</div>
+</div></div>
+<div class="img"></div>
+<div class="code"><div class="bar"><i></i><i></i><i></i></div><span class="k">SELECT</span> product, <span class="k">SUM</span>(qty)<br><span class="k">FROM</span> orders<br><span class="k">GROUP BY</span> product;<br><span style="opacity:.6">-- real code, not theory</span></div>
+<div class="chips"><b>Excel</b><b>SQL</b><b>Python</b><b>Airflow</b><b>Spark</b></div>
+<div class="dots" style="color:var(--ink)"><b></b><b></b><b class="on"></b><b></b><b></b><b></b></div></div>
+
+<div class="s cream" id="s4"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">4/6</div>
+<div class="t"><div class="pill">החזון · 02</div>
+<h2>להגיע לראיון<br><mark>ולדעת לענות.</mark></h2>
+<div class="sub">שאלות אמיתיות מראיונות בדאטה, עם התשובה שעובדת והסבר למה.</div></div>
+<div class="card"><span class="tag">💼 שאלה מראיון עבודה</span>
+<div class="q">500,000 לייקים בדקה. איך שומרים את כולם בלי שהמערכת תקרוס?</div>
+<div class="opt bad"><div class="m">✕</div><span>כתיבה לבסיס הנתונים על כל לייק</span></div>
+<div class="opt good"><div class="m">✓</div>אוספים בזיכרון, ושומרים בקבוצות</div></div>
+<div class="dots" style="color:var(--ink)"><b></b><b></b><b></b><b class="on"></b><b></b><b></b></div></div>
+
+<div class="s cream" id="s5"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">5/6</div>
+<div class="t"><div class="pill">החזון · 03</div>
+<h2>מרכז ידע<br><mark>בעולם הדאטה</mark></h2>
+<div class="sub">כל הטיפים נשמרים בהיילייטס, מסודרים לפי נושא.</div></div>
+<div class="tiles"><img src="tile1.png"><img src="tile2.png"><img src="tile3.png"><img src="tile4.png"><img src="tile5.png"><img src="tile6.png"><img src="tile7.png"><img src="tile8.png"><img src="tile9.png"></div>
+<div class="dots" style="color:var(--ink)"><b></b><b></b><b></b><b></b><b class="on"></b><b></b></div></div>
+
+<div class="s cream" id="s6"><div class="brand"><i></i>הידעת · Pandata</div><div class="num">6/6</div>
+<div class="t"><h2>זה החזון.<br><mark>ואתם חלק ממנו.</mark></h2>
+<div class="recap"><div><i>✓</i>להנגיש דאטה בצורה קלה ומוחשית</div><div><i>✓</i>לעזור לכם בראיונות עבודה</div><div><i>✓</i>מרכז ידע בעולם הדאטה</div></div></div>
+<div class="laugh"></div>
+<div class="cta"><div class="btn" style="font-size:52px;padding:28px 56px">עקבו ←</div><span class="h">@haya___data</span></div>
+<div class="dots" style="color:var(--ink)"><b></b><b></b><b></b><b></b><b></b><b class="on"></b></div></div>
+</body></html>
